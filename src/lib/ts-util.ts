@@ -18,17 +18,17 @@ import {
 
 /**
  *
- * @param id <path>:<line>:<col>:typeid-<typeid>
+ * @param id <path>:<line>:<col>:typeid-<typeName>
  */
 export function pickInfoFromCallerTypeId(id: CallerTypeId): CallerTypeIdInfo {
-  const matched = id.match(/^(.+):(\d+):(\d+):typeid-(\d+)$/u)
+  const matched = id.match(/^(.+):(\d+):(\d+):typeid-([\d\w]+)$/u)
 
   if (matched && matched.length === 5) {
     const ret: CallerTypeIdInfo = {
       path: matched[1],
       line: +matched[2],
       column: +matched[3],
-      typeId: +matched[4],
+      typeId: matched[4],
     }
     return ret
   }
