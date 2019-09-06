@@ -156,6 +156,7 @@ export function matchSourceFileWithFilePath(
 
       if (srcFilePath.toLowerCase() === srcLower) {
         ret.sourceFile = sourceFile
+        break
       }
     }
   }
